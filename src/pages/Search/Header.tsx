@@ -1,5 +1,4 @@
 import Block from '@/components/Block';
-import searchIcon from './search.svg';
 import locationIcon from '@/assets/images/common/location.svg';
 import styled from 'styled-components';
 import { getLocation } from '@/utils/storage';
@@ -9,6 +8,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
 
   img {
     height: 18px;
@@ -21,24 +21,20 @@ const LeftWrapper = styled.div`
 `;
 
 function Header() {
-  const navigate = useNavigate();
   const location = getLocation();
+  const navigate = useNavigate();
 
   return (
     <Block>
-      <Wrapper>
+      <Wrapper
+        onClick={() => {
+          navigate('/');
+        }}
+      >
         <LeftWrapper>
           <img src={locationIcon} alt='' style={{ marginRight: '0.5rem' }} />
           {location && `${location.name}, ${location.country}`}
         </LeftWrapper>
-        <img
-          src={searchIcon}
-          alt=''
-          style={{ marginRight: '0.5rem', cursor: 'pointer' }}
-          onClick={() => {
-            navigate('/search');
-          }}
-        />
       </Wrapper>
     </Block>
   );

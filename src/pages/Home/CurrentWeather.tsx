@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Spin } from 'antd';
 import { getCurrentWeatherData } from '@/apis/openWeather';
 import Block from '@/components/Block';
 import { Weather } from '@/types/openWeather';
@@ -8,6 +7,7 @@ import styled from 'styled-components';
 import { format } from 'date-fns';
 import { FORMAT_DATE_FULL } from '@/constants/common';
 import { weatherIconMapping } from '@/constants/weatherIconMapping';
+import Loading from '@/components/Loading';
 
 const Wrapper = styled.div`
   margin: 1rem 0;
@@ -123,7 +123,7 @@ function CurrentWeather() {
     return (
       <Wrapper>
         <Block>
-          <Spin />
+          <Loading />
         </Block>
       </Wrapper>
     );

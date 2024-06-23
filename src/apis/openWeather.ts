@@ -1,4 +1,4 @@
-import { Weather } from '@/types/openWeather';
+import { Geocoding, Weather } from '@/types/openWeather';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -22,8 +22,8 @@ export async function getForecast5DayByLocation(lat: number, lon: number) {
 }
 
 export async function getGeocoding(q: string) {
-  const res = await axios.get(
+  const res = await axios.get<Geocoding[]>(
     `${OPEN_WEATHER_ENDPOINT}/geo/1.0/direct?q=${q}&appid=${API_KEY}`,
   );
-  return res;
+  return res.data;
 }

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Spin } from 'antd';
 import { getForecast5DayByLocation } from '@/apis/openWeather';
 import Block from '@/components/Block';
 import { Weather } from '@/types/openWeather';
@@ -7,6 +6,7 @@ import { getLocation } from '@/utils/storage';
 import styled from 'styled-components';
 import { format } from 'date-fns';
 import { weatherIconMapping } from '@/constants/weatherIconMapping';
+import Loading from '@/components/Loading';
 
 const Title = styled.div`
   font-weight: 600;
@@ -138,7 +138,7 @@ function Forecast() {
   if (loading) {
     return (
       <Block>
-        <Spin />
+        <Loading />
       </Block>
     );
   }
