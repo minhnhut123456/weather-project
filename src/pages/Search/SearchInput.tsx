@@ -101,13 +101,15 @@ function SearchInput() {
   }, []);
 
   const debounceFn = useCallback(
-    debounce((curVal) => {
-      if (!curVal) {
+    debounce((curVal: string) => {
+      const formatedCurVal = curVal.trim();
+
+      if (!formatedCurVal) {
         setLocations([]);
         return;
       }
 
-      fetchLocations(curVal);
+      fetchLocations(formatedCurVal);
     }, 500),
     [fetchLocations],
   );
@@ -117,7 +119,7 @@ function SearchInput() {
       <StyledInput
         value={value}
         onChange={(e) => {
-          const curVal = e.target.value.trim();
+          const curVal = e.target.value;
           setValue(curVal);
           debounceFn(curVal);
         }}
