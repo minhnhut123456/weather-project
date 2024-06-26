@@ -1,6 +1,7 @@
 # Weather Project with Vite
 
 This project provides UI to get current weather data from [OpenWeather](https://openweathermap.org/)
+
 preview: [https://weather-project-weld.vercel.app/](https://weather-project-weld.vercel.app/)
 
 Setup something before start:
