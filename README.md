@@ -1,4 +1,4 @@
-# Weather Project
+# Weather Project with Vite
 
 This project provides UI to get current weather data from [OpenWeather](https://openweathermap.org/)
 
